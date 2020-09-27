@@ -2,14 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// Module
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { CosplayersModule } from './cosplayers/cosplayers.module';
 
-import { AuthService } from './services/auth.service';
+// Components, directives and pipes
+import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { CosplayersModule } from './cosplayers/cosplayers.module';
 import { MenuComponent } from './menu/menu.component';
+
+// Services and guards
+import { AuthService } from './services/auth.service';
+import { CosplayerService } from './services/cosplayer.service';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +33,7 @@ import { MenuComponent } from './menu/menu.component';
   ],
   providers: [
     AuthService,
+    CosplayerService,
   ],
   bootstrap: [AppComponent]
 })

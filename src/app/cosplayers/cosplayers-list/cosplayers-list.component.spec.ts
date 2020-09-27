@@ -28,4 +28,10 @@ describe('CosplayersListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a list of cosplayer greater than 0 after ngOnInit', () => {
+    component.ngOnInit();
+    expect(component.cosplayerList).not.toBeUndefined();
+    expect(component.cosplayerList.length).toBeGreaterThan(0);
+  });
 });

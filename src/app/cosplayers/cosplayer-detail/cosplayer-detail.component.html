@@ -1,1 +1,19 @@
 <p>cosplayer-detail works!</p>
+
+<div>
+  <strong>
+    {{ cosplayer?.name }}
+  </strong>
+
+  <ul>
+    <li *ngFor="let cosplay of cosplayer?.cosplays">
+      <strong>
+        {{ cosplay.name }}
+      </strong>
+      <span>
+        {{ cosplay.price }}
+      </span>
+      <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
+    </li>
+  </ul>
+</div>
