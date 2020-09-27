@@ -1,8 +1,31 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Subject } from 'rxjs';
+
 import { AppComponent } from './app.component';
+import { AuthService } from './services/auth.service';
+
+class MockAuthService {
+  private isLogged = false;
+  loginEmitter$ = new Subject<boolean>();
+
+  login() {
+    this.isLogged = true;
+    this.loginEmitter$.next(true);
+  }
+
+  logout() {
+    this.isLogged = false;
+    this.loginEmitter$.next(this.isLogged);
+  }
+}
 
 describe('AppComponent', () => {
+  let app: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let compiled: HTMLElement;
+  let service: AuthService;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -11,83 +34,46 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        AppComponent,
+        AuthService,
+        // { provide: AuthService, useClass: MockAuthService }
+      ]
     }).compileComponents();
   }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    service = TestBed.inject(AuthService);
+    app = fixture.componentInstance;
+    compiled = fixture.nativeElement;
+    fixture.detectChanges();
+  });
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it('[ts]should not show menu before login', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.logged).toBeFalse();
-  });
-
-  it('[html]should not show menu before login', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
+  it('should not show menu before login', () => {
+    app.logged = false;
     const htmlMenu = compiled.querySelector('#main-menu');
     expect(htmlMenu).toBeNull();
   });
 
-  it('[ts] should show menu after login', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    app.ngOnInit();
-    app.handleLogin();
-    expect(app.logged).toBeTrue();
+  it('should show menu after login', () => {
+    app.logged = true;
+    fixture.detectChanges();
+    const htmlMenu = compiled.querySelector('#main-menu');
+    expect(htmlMenu).toBeTruthy();
   });
 
-  it('[html] should show menu after login', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    const navBeforeLogin = compiled.querySelector('#main-menu');
-    expect(navBeforeLogin).toBeNull();
-
-    app.handleLogin();
-    fixture.detectChanges();
-    const navAfterLogin = compiled.querySelector('#main-menu');
-    const buttonLogout = compiled.querySelector('#btn-logout');
-    expect(navAfterLogin).toBeTruthy();
-    expect(buttonLogout).toBeTruthy();
-    expect(buttonLogout.textContent).toContain('Logout');
-  });
-
-  it('[ts] should hide menu after logout', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+  it('should emit user loggedIn by auth service', () => {
     app.ngOnInit();
-
     expect(app.logged).toBeFalse();
-    app.handleLogin();
+    service.login();
     expect(app.logged).toBeTrue();
-    app.handleLogout();
-    expect(app.logged).toBeFalse();
-  });
-
-  it('[html] should hide menu after logout', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    app.ngOnInit();
-    app.handleLogin();
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(app.logged).toBeTrue();
-    const navBeforeLogin = compiled.querySelector('#main-menu');
-    expect(navBeforeLogin).toBeTruthy();
-
-    app.handleLogout();
-    fixture.detectChanges();
-    const navAfterLogout = compiled.querySelector('#main-menu');
-    expect(navAfterLogout).toBeNull();
   });
 
 });

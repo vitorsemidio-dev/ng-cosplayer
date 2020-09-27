@@ -23,12 +23,4 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subLogin.unsubscribe();
   }
-
-  handleLogin() {
-    this.authService.login();
-  }
-
-  handleLogout() {
-    this.authService.logout();
-  }
 }

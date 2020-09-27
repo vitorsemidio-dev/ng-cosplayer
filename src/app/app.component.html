@@ -1,18 +1,6 @@
-<nav id="main-menu" *ngIf="logged">
-  Menu
-</nav>
+<app-menu *ngIf="logged" id="main-menu">
 
-<h1>
-  app component
-</h1>
-
-<button *ngIf="!logged" id="btn-login" (click)="handleLogin()">
-  Login
-</button>
-
-<button *ngIf="logged" id="btn-logout" (click)="handleLogout()">
-  Logout
-</button>
+</app-menu>
 
 <main>
   <router-outlet></router-outlet>
