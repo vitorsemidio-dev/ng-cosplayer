@@ -10,8 +10,7 @@ import { CosplayerService } from './../../services/cosplayer.service';
   templateUrl: './cosplayers-list.component.html',
   styleUrls: ['./cosplayers-list.component.scss'],
 })
-export class CosplayersListComponent implements OnInit, OnDestroy {
-  private sub: Subscription;
+export class CosplayersListComponent implements OnInit {
   cosplayerList: Cosplayer[];
 
   constructor(private cosplayerService: CosplayerService) {}
@@ -20,14 +19,8 @@ export class CosplayersListComponent implements OnInit, OnDestroy {
     this.loadCosplayers();
   }
 
-  ngOnDestroy() {
-    if (this.sub) {
-      this.sub.unsubscribe();
-    }
-  }
-
   loadCosplayers() {
-    this.sub = this.cosplayerService.getCosplayers().subscribe(cosplayers => {
+    this.cosplayerService.getCosplayers().subscribe(cosplayers => {
       this.cosplayerList = cosplayers;
     });
   }

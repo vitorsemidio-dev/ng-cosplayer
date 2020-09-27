@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   email: string;
@@ -11,10 +11,9 @@ export class LoginComponent implements OnInit {
 
   feedback: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleLogin() {
     this.feedback = this.validateLogin(this.email, this.password);
@@ -31,5 +30,4 @@ export class LoginComponent implements OnInit {
 
     return 'Bem vindo, fake';
   }
-
 }
