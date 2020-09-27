@@ -76,7 +76,10 @@ describe('[FakeDbService] - Create Session', () => {
   it('should not create session with incorrect combination', () => {
     const wrongEmail = 'wrong-email@email.com';
     const wrongPassword = 'wrong-password';
-    const response = service.createSession({ email: wrongEmail, password: wrongPassword });
+    const response = service.createSession({
+      email: wrongEmail,
+      password: wrongPassword,
+    });
     expect(response.message).toContain('incorreta');
     expect(response.statusCode).toEqual(401);
   });

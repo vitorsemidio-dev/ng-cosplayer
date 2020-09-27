@@ -14,9 +14,11 @@ interface IResponse {
 }
 
 interface IResponseSuccess extends IResponse {
+  statusCode: 200 | 201;
 }
 
 interface IResponseError extends IResponse {
+  statusCode: 400 | 401 | 403 | 404;
 }
 
 @Injectable({
@@ -28,11 +30,8 @@ export class FakeDbService {
 
   constructor() {}
 
-  createSession({
-    email,
-    password,
-  }: IRequest): IResponse {
-    const user = this.users.find((userItem) => userItem.email === email);
+  createSession({ email, password }: IRequest): IResponse {
+    const user = this.users.find(userItem => userItem.email === email);
 
     if (!user) {
       return this._messageInvalidMatch();
@@ -72,7 +71,9 @@ export class FakeDbService {
   }
 
   getCosplayerById(idCosplay: string) {
-    const cosplayer = this.cosplayers.find(cosplayerItem => cosplayerItem.id === idCosplay);
+    const cosplayer = this.cosplayers.find(
+      cosplayerItem => cosplayerItem.id === idCosplay,
+    );
     return cosplayer;
   }
 }
@@ -84,9 +85,17 @@ const USERS: User[] = [
 ];
 
 const COSPLAYERS: Cosplayer[] = [
-  { id: '1', name: 'Asuna', cosplays: [
-    { name: 'Asuna Alicization', price: 100.00, imageUrl: './../../assets/cosplayers/Asuna/Asuna-alicization.jpg' }
-  ] },
+  {
+    id: '1',
+    name: 'Asuna',
+    cosplays: [
+      {
+        name: 'Asuna Alicization',
+        price: 100.0,
+        imageUrl: './../../assets/cosplayers/Asuna/Asuna-alicization.jpg',
+      },
+    ],
+  },
   { id: '2', name: 'Ichigo', cosplays: [] },
   { id: '3', name: 'Kirito', cosplays: [] },
   { id: '4', name: 'Leafa', cosplays: [] },
