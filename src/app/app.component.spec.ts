@@ -20,30 +20,45 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should not show menu before login', () => {
+  it('[ts]should not show menu before login', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.logged).toBeFalse();
   });
 
-  it('should not show in html menu before login', () => {
+  it('[html]should not show menu before login', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('#main-menu')).toBeFalsy();
-    app.handleLogin();
-    expect(app.logged).toBeTrue();
-    fixture.detectChanges();
-    expect(compiled.querySelector('#main-menu')).toBeTruthy();
+    const htmlMenu = compiled.querySelector('#main-menu');
+    expect(htmlMenu).toBeNull();
   });
 
-  it('should not show menu before login in html', () => {
+  it('[ts] should show menu after login', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    app.ngOnInit();
+    app.handleLogin();
+    expect(app.logged).toBeTrue();
+  });
+
+  it('[html] should show menu after login', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('#login-button').textContent).toContain('Login');
+    const navBeforeLogin = compiled.querySelector('#main-menu');
+    expect(navBeforeLogin).toBeNull();
+
+    app.handleLogin();
+    fixture.detectChanges();
+    const navAfterLogin = compiled.querySelector('#main-menu');
+    const buttonLogout = compiled.querySelector('#btn-logout');
+    expect(navAfterLogin).toBeTruthy();
+    expect(buttonLogout).toBeTruthy();
+    expect(buttonLogout.textContent).toContain('Logout');
   });
 
 });
