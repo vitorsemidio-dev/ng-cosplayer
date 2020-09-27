@@ -2,7 +2,42 @@ import { TestBed } from '@angular/core/testing';
 
 import { FakeDbService } from './fake-db.service';
 
-describe('FakeDbService', () => {
+describe('[FakeDbService] - Cosplayer', () => {
+  let service: FakeDbService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(FakeDbService);
+  });
+
+  it('should list cosplayers', () => {
+    const cosplayers = service.getCosplayers();
+    expect(cosplayers.length).toBeGreaterThan(0);
+  });
+
+  it('should select Asuna Cosplayer', () => {
+    const cosplayer = service.getCosplayerById('1');
+    expect(cosplayer).toBeTruthy();
+    expect(cosplayer.name).toBe('Asuna');
+  });
+
+  it('should assert there is at least 1 cosplay in the list of cosplayer', () => {
+    const cosplayer = service.getCosplayerById('1');
+    expect(cosplayer.cosplays.length).toBeGreaterThan(0);
+  });
+
+  it('should assert image, price and name of a cosplay are valid', () => {
+    const cosplayer = service.getCosplayerById('1');
+    const firstCosplay = cosplayer.cosplays[0];
+    expect(firstCosplay).toBeTruthy();
+    expect(firstCosplay.name).toBeTruthy();
+    expect(firstCosplay.price).toBeTruthy();
+    expect(firstCosplay.price).not.toBeLessThan(0);
+    expect(firstCosplay.imageUrl).toBeTruthy();
+  });
+});
+
+describe('[FakeDbService] - Create Session', () => {
   let service: FakeDbService;
 
   beforeEach(() => {
@@ -44,33 +79,5 @@ describe('FakeDbService', () => {
     const response = service.createSession({ email: wrongEmail, password: wrongPassword });
     expect(response.message).toContain('incorreta');
     expect(response.statusCode).toEqual(401);
-  });
-
-  // Cosplayer Tests
-
-  it('should list cosplayers', () => {
-    const cosplayers = service.getCosplayers();
-    expect(cosplayers.length).toBeGreaterThan(0);
-  });
-
-  it('should select Asuna Cosplayer', () => {
-    const cosplayer = service.getCosplayerById('1');
-    expect(cosplayer).toBeTruthy();
-    expect(cosplayer.name).toBe('Asuna');
-  });
-
-  it('should assert there is at least 1 cosplay in the list of cosplayer', () => {
-    const cosplayer = service.getCosplayerById('1');
-    expect(cosplayer.cosplays.length).toBeGreaterThan(0);
-  });
-
-  it('should assert image, price and name of a cosplay are valid', () => {
-    const cosplayer = service.getCosplayerById('1');
-    const firstCosplay = cosplayer.cosplays[0];
-    expect(firstCosplay).toBeTruthy();
-    expect(firstCosplay.name).toBeTruthy();
-    expect(firstCosplay.price).toBeTruthy();
-    expect(firstCosplay.price).not.toBeLessThan(0);
-    expect(firstCosplay.imageUrl).toBeTruthy();
   });
 });

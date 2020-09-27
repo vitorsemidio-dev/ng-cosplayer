@@ -21,6 +21,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subLogin.unsubscribe();
+    if (this.subLogin) {
+      this.subLogin.unsubscribe();
+    }
   }
 }

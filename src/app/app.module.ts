@@ -16,14 +16,14 @@ import { MenuComponent } from './menu/menu.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    CosplayersModule
+    CosplayersModule,
   ],
   providers: [
     AuthService,

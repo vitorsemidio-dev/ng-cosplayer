@@ -2,7 +2,16 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Subject } from 'rxjs';
 
+// Components, pipes and directives
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
+import { RegisterComponent } from './register/register.component';
+
+// Modules
+import { CosplayersModule } from './cosplayers/cosplayers.module';
+
+// Services and guards
 import { AuthService } from './services/auth.service';
 
 class MockAuthService {
@@ -29,10 +38,14 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        CosplayersModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent,
+        RegisterComponent,
+        MenuComponent,
       ],
       providers: [
         AppComponent,
@@ -46,6 +59,7 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     service = TestBed.inject(AuthService);
     app = fixture.componentInstance;
+    app.ngOnInit();
     compiled = fixture.nativeElement;
     fixture.detectChanges();
   });
@@ -70,7 +84,6 @@ describe('AppComponent', () => {
   });
 
   it('should emit user loggedIn by auth service', () => {
-    app.ngOnInit();
     expect(app.logged).toBeFalse();
     service.login();
     expect(app.logged).toBeTrue();
