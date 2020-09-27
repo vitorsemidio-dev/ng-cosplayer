@@ -34,4 +34,10 @@ describe('CosplayersListComponent', () => {
     expect(component.cosplayerList).not.toBeUndefined();
     expect(component.cosplayerList.length).toBeGreaterThan(0);
   });
+
+  it('should have a list of cosplayer in the DOM after ngOnInit', () => {
+    expect(
+      fixture.nativeElement.querySelector('div app-cosplayer-detail')
+    ).toBeTruthy();
+  });
 });
