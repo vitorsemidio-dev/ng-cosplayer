@@ -61,4 +61,33 @@ describe('AppComponent', () => {
     expect(buttonLogout.textContent).toContain('Logout');
   });
 
+  it('[ts] should hide menu after logout', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.ngOnInit();
+
+    expect(app.logged).toBeFalse();
+    app.handleLogin();
+    expect(app.logged).toBeTrue();
+    app.handleLogout();
+    expect(app.logged).toBeFalse();
+  });
+
+  it('[html] should hide menu after logout', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    app.ngOnInit();
+    app.handleLogin();
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(app.logged).toBeTrue();
+    const navBeforeLogin = compiled.querySelector('#main-menu');
+    expect(navBeforeLogin).toBeTruthy();
+
+    app.handleLogout();
+    fixture.detectChanges();
+    const navAfterLogout = compiled.querySelector('#main-menu');
+    expect(navAfterLogout).toBeNull();
+  });
+
 });
