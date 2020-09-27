@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CosplayersModule } from './cosplayers/cosplayers.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CosplayersModule
   ],
   providers: [
     AuthService,
