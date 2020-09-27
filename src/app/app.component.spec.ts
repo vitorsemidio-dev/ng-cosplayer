@@ -2,7 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
-xdescribe('AppComponent', () => {
+describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -26,17 +26,22 @@ xdescribe('AppComponent', () => {
     expect(app.logged).toBeFalse();
   });
 
-  xit('should not show in html menu before login', () => {
+  it('should not show in html menu before login', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+    fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('#main-menu')).toBeFalsy();
     app.handleLogin();
     expect(app.logged).toBeTrue();
+    fixture.detectChanges();
+    expect(compiled.querySelector('#main-menu')).toBeTruthy();
   });
 
-  xit('should not show menu before login in html', () => {
+  it('should not show menu before login in html', () => {
     const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('#login-button').textContent).toContain('Login');
   });
