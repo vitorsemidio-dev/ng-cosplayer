@@ -34,6 +34,7 @@ describe('[CosplayerDetailComponent] - Render cosplayer data', () => {
     const cosplayer: Cosplayer = {
       id: '1',
       name: 'Cosplayer',
+      avatarUrl: 'fake-avatar-url',
       cosplays: [{ name: 'Cosplay', price: 100.0, imageUrl: 'fake-url' }],
     };
     const fisrtCosplay = cosplayer.cosplays[0];

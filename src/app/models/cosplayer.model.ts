@@ -7,5 +7,6 @@ interface Cosplay {
 }
 
 export class Cosplayer extends Person {
+  avatarUrl: string;
   cosplays: Cosplay[];
 }

@@ -6,6 +6,7 @@
     [id]="'cosplayer-' + cosplayer?.id"
     [routerLink]="[cosplayer?.id]"
   >
+    <img [src]="cosplayer?.avatarUrl" [alt]="'Avatar' + cosplayer?.name" />
     <strong>
       {{ cosplayer?.name }}
     </strong>

@@ -88,15 +88,60 @@ const COSPLAYERS: Cosplayer[] = [
   {
     id: '1',
     name: 'Asuna',
+    avatarUrl: './../../assets/cosplayers/Asuna/Asuna.png',
     cosplays: [
       {
         name: 'Asuna Alicization',
         price: 100.0,
         imageUrl: './../../assets/cosplayers/Asuna/Asuna-alicization.jpg',
       },
+      {
+        name: 'Asuna Alicization',
+        price: 100.0,
+        imageUrl: './../../assets/cosplayers/Asuna/Asuna-alo.png',
+      },
+      {
+        name: 'Asuna Alicization',
+        price: 100.0,
+        imageUrl: './../../assets/cosplayers/Asuna/Asuna-ordinal-scale.png',
+      },
+      {
+        name: 'Asuna Alicization',
+        price: 100.0,
+        imageUrl: './../../assets/cosplayers/Asuna/Asuna-sao.jpg',
+      },
     ],
   },
-  { id: '2', name: 'Ichigo', cosplays: [] },
-  { id: '3', name: 'Kirito', cosplays: [] },
-  { id: '4', name: 'Leafa', cosplays: [] },
+  {
+    id: '2',
+    name: 'Ichigo',
+    avatarUrl: './../../assets/cosplayers/Ichigo/Ichigo.jpg',
+    cosplays: [
+      { name: 'Ichigo Bankai', price: 10, imageUrl: './../../assets/cosplayers/Ichigo/Ichigo-bankai.jpg' },
+      { name: 'Ichigo Getsuga', price: 10, imageUrl: './../../assets/cosplayers/Ichigo/Ichigo-getsuga.png' },
+      { name: 'Ichigo Hollow', price: 10, imageUrl: './../../assets/cosplayers/Ichigo/Ichigo-hollow.jpg' },
+      { name: 'Ichigo Inner', price: 10, imageUrl: './../../assets/cosplayers/Ichigo/Ichigo-inner.jpg' },
+      { name: 'Ichigo Vasto Lord', price: 10, imageUrl: './../../assets/cosplayers/Ichigo/Ichigo-vasto-lord.jpg' },
+    ],
+  },
+  {
+    id: '3',
+    name: 'Kirito',
+    avatarUrl: './../../assets/cosplayers/Kirito/Kirito.jpg',
+    cosplays: [
+      { name: 'Kirito Alicization', price: 123, imageUrl: './../../assets/cosplayers/Kirito/Kirito-alicization.jpg' },
+      { name: 'Kirito ALO', price: 123, imageUrl: './../../assets/cosplayers/Kirito/Kirito-alo.png' },
+      { name: 'Kirito GGO', price: 123, imageUrl: './../../assets/cosplayers/Kirito/Kirito-ggo.jpg' },
+      { name: 'Kirito Ordinal Scale', price: 123, imageUrl: './../../assets/cosplayers/Kirito/Kirito-ordinal-scale.jpg' },
+      { name: 'Kirito SAO', price: 123, imageUrl: './../../assets/cosplayers/Kirito/Kirito-sao.png' }
+    ],
+  },
+  {
+    id: '4',
+    name: 'Leafa',
+    avatarUrl: './../../assets/cosplayers/Leafa/Leafa.jpg',
+    cosplays: [
+      { name: 'Leafa ALO', price: 125, imageUrl: './../../assets/cosplayers/Leafa/Leafa-alo.png' },
+    ],
+  },
 ];
