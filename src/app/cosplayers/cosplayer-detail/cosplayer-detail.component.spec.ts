@@ -1,6 +1,8 @@
+// import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CosplayerDetailComponent } from './cosplayer-detail.component';
+// import { CosplayersModule } from './../cosplayers.module';
 import { Cosplayer } from './../../models/cosplayer.model';
 
 describe('[CosplayerDetailComponent] - Render cosplayer data', () => {
@@ -10,6 +12,10 @@ describe('[CosplayerDetailComponent] - Render cosplayer data', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CosplayerDetailComponent],
+      imports: [
+        // RouterTestingModule,
+        // CosplayersModule,
+      ],
     }).compileComponents();
   }));
 
@@ -37,7 +43,7 @@ describe('[CosplayerDetailComponent] - Render cosplayer data', () => {
 
     fixture.detectChanges();
     expect(
-      fixture.nativeElement.querySelector('div strong').innerText.trim(),
+      fixture.nativeElement.querySelector('a strong').innerText.trim(),
     ).toEqual(cosplayer.name);
     expect(
       fixture.nativeElement.querySelector('li strong').innerText.trim(),

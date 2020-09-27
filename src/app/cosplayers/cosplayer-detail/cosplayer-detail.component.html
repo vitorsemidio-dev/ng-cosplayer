@@ -1,9 +1,15 @@
 <p>cosplayer-detail works!</p>
 
 <div>
-  <strong>
-    {{ cosplayer?.name }}
-  </strong>
+  <a
+    class="choose-link"
+    [id]="'cosplayer-' + cosplayer?.id"
+    [routerLink]="[cosplayer?.id]"
+  >
+    <strong>
+      {{ cosplayer?.name }}
+    </strong>
+  </a>
 
   <ul>
     <li *ngFor="let cosplay of cosplayer?.cosplays">

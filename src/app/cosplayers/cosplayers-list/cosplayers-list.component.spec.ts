@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CosplayersListComponent } from './cosplayers-list.component';
 import { CosplayersModule } from './../cosplayers.module';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('CosplayersListComponent', () => {
   let component: CosplayersListComponent;
@@ -39,5 +41,18 @@ describe('CosplayersListComponent', () => {
     expect(
       fixture.nativeElement.querySelector('div app-cosplayer-detail')
     ).toBeTruthy();
+  });
+
+  xit('should choose a cosplay', () => {
+    fixture.detectChanges();
+    const de: DebugElement = fixture.debugElement;
+    const linkCosplayer = de.query(By.css('#cosplayer-1'));
+    const cosplayerNotChoose = de.query(By.css('app-cosplayer-choose'));
+    expect(cosplayerNotChoose).toBeNull();
+    expect(linkCosplayer).toBeTruthy();
+    linkCosplayer.triggerEventHandler('click', {});
+    fixture.detectChanges();
+    const cosplayerChoose = de.query(By.css('app-cosplayer-choose'));
+    expect(cosplayerChoose).toBeTruthy();
   });
 });
