@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "ng-cosplay": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-cosplay"
+    }
+  },
+  "defaultProject": "ng-cosplay",
+  "cli": {
+    "analytics": "60167a29-abd3-404e-a7bf-0a36d0471201"
+  }
 }
