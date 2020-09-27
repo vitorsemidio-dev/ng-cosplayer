@@ -24,6 +24,7 @@ interface IResponseError extends IResponse {
 })
 export class FakeDbService {
   private users = USERS;
+  private cosplayers = COSPLAYERS;
 
   constructor() {}
 
@@ -63,10 +64,31 @@ export class FakeDbService {
       message: 'Combinação de usuário e senha válida',
     };
   }
+
+
+  // Cosplayers
+
+  getCosplayers() {
+    return this.cosplayers;
+  }
+
+  getCosplayerById(idCosplay: string) {
+    const cosplayer = this.cosplayers.find(cosplayerItem => cosplayerItem.id === idCosplay);
+    return cosplayer;
+  }
 }
+
+// const baseUrlImage = './../../assets';
 
 const USERS: User[] = [
   { id: '1', name: 'User 1', password: '123456', email: 'user01@email.com' },
 ];
 
-const COSPLAYERS: Cosplayer[] = [];
+const COSPLAYERS: Cosplayer[] = [
+  { id: '1', name: 'Asuna', cosplays: [
+    { name: 'Asuna Alicization', price: 100.00, imageUrl: './../../assets/cosplayers/Asuna/Asuna-alicization.jpg' }
+  ] },
+  { id: '2', name: 'Ichigo', cosplays: [] },
+  { id: '3', name: 'Kirito', cosplays: [] },
+  { id: '4', name: 'Leafa', cosplays: [] },
+];

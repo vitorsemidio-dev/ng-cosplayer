@@ -45,4 +45,32 @@ describe('FakeDbService', () => {
     expect(response.message).toContain('incorreta');
     expect(response.statusCode).toEqual(401);
   });
+
+  // Cosplayer Tests
+
+  it('should list cosplayers', () => {
+    const cosplayers = service.getCosplayers();
+    expect(cosplayers.length).toBeGreaterThan(0);
+  });
+
+  it('should select Asuna Cosplayer', () => {
+    const cosplayer = service.getCosplayerById('1');
+    expect(cosplayer).toBeTruthy();
+    expect(cosplayer.name).toBe('Asuna');
+  });
+
+  it('should assert there is at least 1 cosplay in the list of cosplayer', () => {
+    const cosplayer = service.getCosplayerById('1');
+    expect(cosplayer.cosplays.length).toBeGreaterThan(0);
+  });
+
+  it('should assert image, price and name of a cosplay are valid', () => {
+    const cosplayer = service.getCosplayerById('1');
+    const firstCosplay = cosplayer.cosplays[0];
+    expect(firstCosplay).toBeTruthy();
+    expect(firstCosplay.name).toBeTruthy();
+    expect(firstCosplay.price).toBeTruthy();
+    expect(firstCosplay.price).not.toBeLessThan(0);
+    expect(firstCosplay.imageUrl).toBeTruthy();
+  });
 });

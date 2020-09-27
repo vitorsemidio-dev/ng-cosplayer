@@ -1,4 +1,4 @@
-import { User } from './user.model';
+import { Person } from './person.model';
 
 interface Cosplay {
   name: string;
@@ -6,6 +6,6 @@ interface Cosplay {
   imageUrl: string;
 }
 
-export class Cosplayer extends User {
+export class Cosplayer extends Person {
   cosplays: Cosplay[];
 }
