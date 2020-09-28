@@ -1,4 +1,4 @@
-<p>login works!</p>
+<!-- <p>login works!</p>
 <form>
   <label for="email">
     E-mail
@@ -11,4 +11,37 @@
   </label>
 
   <button type="button" (click)="handleLogin()">Fazer login</button>
-</form>
+</form> -->
+
+<main class="form-container">
+  <form
+    class="form-login"
+    [formGroup]="loginForm"
+    (ngSubmit)="handleSubmitForm()"
+  >
+    <label>
+      E-mail
+      <input
+        [formControlName]="'email'"
+        type="text"
+        placeholder="example@ngcosplayer.com"
+      />
+    </label>
+    <label>
+      Senha
+      <input
+        type="password"
+        [formControlName]="'password'"
+        type="text"
+        placeholder="Sua senha ter 6 dígitos no mínimo"
+      />
+    </label>
+
+    <small *ngIf="feedback" style="color: #fa7880">
+      {{ feedback }}
+    </small>
+
+    <button class="button-submit" type="submit">Entrar</button>
+    <a [routerLink]="['/register']"> Crie uma conta agora </a>
+  </form>
+</main>
