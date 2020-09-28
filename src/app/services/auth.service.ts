@@ -35,4 +35,8 @@ export class AuthService {
     this.isLogged = false;
     this.loginEmitter$.next(this.isLogged);
   }
+
+  getIsUserLogged() {
+    return this.isLogged;
+  }
 }
