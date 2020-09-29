@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'cosplayers',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./cosplayers/cosplayers.module').then(m => m.CosplayersModule),
   }
 ];

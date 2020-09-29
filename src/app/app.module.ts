@@ -15,7 +15,7 @@ import { MenuComponent } from './menu/menu.component';
 // Services and guards
 import { AuthService } from './services/auth.service';
 import { CosplayerService } from './services/cosplayer.service';
-
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { CosplayerService } from './services/cosplayer.service';
   providers: [
     AuthService,
     CosplayerService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
