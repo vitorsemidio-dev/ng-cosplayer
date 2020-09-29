@@ -18,7 +18,7 @@ describe('AuthService', () => {
   });
 
   it('should login', (done) => {
-    service.loginEmitter$.subscribe(isLogged => {
+    service.loginEmitter$.subscribe((isLogged) => {
       expect(isLogged).toBeTrue();
       done();
     });
@@ -29,7 +29,7 @@ describe('AuthService', () => {
   });
 
   it('should logout', (done) => {
-    service.loginEmitter$.subscribe(isLogged => {
+    service.loginEmitter$.subscribe((isLogged) => {
       expect(isLogged).toBeFalse();
       done();
     });

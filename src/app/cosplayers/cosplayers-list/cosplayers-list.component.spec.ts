@@ -12,13 +12,9 @@ describe('CosplayersListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        CosplayersModule,
-      ],
-      declarations: [ CosplayersListComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule, CosplayersModule],
+      declarations: [CosplayersListComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

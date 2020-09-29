@@ -31,11 +31,7 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule,
     CosplayersModule,
   ],
-  providers: [
-    AuthService,
-    CosplayerService,
-    AuthGuard,
-  ],
-  bootstrap: [AppComponent]
+  providers: [AuthService, CosplayerService, AuthGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

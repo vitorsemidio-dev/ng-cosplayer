@@ -5,14 +5,12 @@ import { Cosplayer } from './../../models/cosplayer.model';
 @Component({
   selector: 'app-cosplayer-detail',
   templateUrl: './cosplayer-detail.component.html',
-  styleUrls: ['./cosplayer-detail.component.scss']
+  styleUrls: ['./cosplayer-detail.component.scss'],
 })
 export class CosplayerDetailComponent implements OnInit {
   @Input() cosplayer: Cosplayer;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

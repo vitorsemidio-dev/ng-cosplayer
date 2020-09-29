@@ -15,7 +15,9 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.subLogin = this.authService.loginEmitter$.subscribe((isLogged) => (this.logged = isLogged));
+    this.subLogin = this.authService.loginEmitter$.subscribe(
+      (isLogged) => (this.logged = isLogged)
+    );
   }
 
   ngOnDestroy() {

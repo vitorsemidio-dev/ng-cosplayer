@@ -6,13 +6,10 @@ import { take } from 'rxjs/operators';
 import { FakeDbService } from './../db/fake-db.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CosplayerService {
-
-  constructor(
-    private apiService: FakeDbService,
-  ) { }
+  constructor(private apiService: FakeDbService) {}
 
   getCosplayers() {
     const cosplayers = this.apiService.getCosplayers();
