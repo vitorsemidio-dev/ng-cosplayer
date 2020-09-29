@@ -26,9 +26,18 @@ class MockAuthService {
   }
 }
 
-fdescribe('AuthGuard', () => {
+const createMockRoute = (id: string) => {
+  return {
+    params: { id }
+  } as any;
+};
+
+const createMockRouteState = () => null;
+
+describe('AuthGuard', () => {
   let guard: AuthGuard;
   let authService: AuthService;
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -47,13 +56,17 @@ fdescribe('AuthGuard', () => {
   });
 
   it('should not be able to acess without login', () => {
-    expect(authService).toBeTruthy();
-    expect(guard.canActivate(null, null)).toBeFalse();
+    const route = createMockRoute(null);
+    const state = createMockRouteState();
+    const allowAccess = guard.canActivate(route, state);
+    expect(allowAccess).toBeFalse();
   });
 
   it('should be able to acess with login', () => {
-    expect(authService).toBeTruthy();
+    const route = createMockRoute(null);
+    const state = createMockRouteState();
     authService.login({ email: '', password: '' });
-    expect(guard.canActivate(null, null)).toBeTrue();
+    const allowAccess = guard.canActivate(route, state);
+    expect(allowAccess).toBeTrue();
   });
 });
