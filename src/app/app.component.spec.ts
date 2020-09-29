@@ -35,6 +35,9 @@ describe('AppComponent', () => {
   let compiled: HTMLElement;
   let service: AuthService;
 
+  const correctEmail = 'user01@email.com';
+  const correctPassword = '123456';
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -83,10 +86,18 @@ describe('AppComponent', () => {
     expect(htmlMenu).toBeTruthy();
   });
 
-  it('should emit user loggedIn by auth service', () => {
+  it('should emit user loggedIn by auth service', (done) => {
     expect(app.logged).toBeFalse();
-    service.login();
-    expect(app.logged).toBeTrue();
+
+    service.loginEmitter$.subscribe(isLogged => {
+      expect(app.logged).toBeTrue();
+      done();
+    });
+
+    service.login({
+      email: correctEmail,
+      password: correctPassword,
+    });
   });
 
 });

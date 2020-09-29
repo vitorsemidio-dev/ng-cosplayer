@@ -28,7 +28,7 @@ class MockAuthService {
 
 const createMockRoute = (id: string) => {
   return {
-    params: { id }
+    params: { id },
   } as any;
 };
 
@@ -38,14 +38,13 @@ describe('AuthGuard', () => {
   let guard: AuthGuard;
   let authService: AuthService;
 
+  const correctEmail = 'user01@email.com';
+  const correctPassword = '123456';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, CosplayersModule],
-      providers: [
-        AuthService,
-        { provide: AuthService, useClass: MockAuthService },
-      ],
+      providers: [AuthService],
     });
     guard = TestBed.inject(AuthGuard);
     authService = TestBed.inject(AuthService);
@@ -65,7 +64,7 @@ describe('AuthGuard', () => {
   it('should be able to acess with login', () => {
     const route = createMockRoute(null);
     const state = createMockRouteState();
-    authService.login({ email: '', password: '' });
+    authService.login({ email: correctEmail, password: correctPassword });
     const allowAccess = guard.canActivate(route, state);
     expect(allowAccess).toBeTrue();
   });

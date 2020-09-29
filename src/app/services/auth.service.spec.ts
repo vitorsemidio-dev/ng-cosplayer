@@ -5,6 +5,9 @@ import { AuthService } from './auth.service';
 describe('AuthService', () => {
   let service: AuthService;
 
+  const correctEmail = 'user01@email.com';
+  const correctPassword = '123456';
+
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
@@ -19,7 +22,10 @@ describe('AuthService', () => {
       expect(isLogged).toBeTrue();
       done();
     });
-    service.login();
+    service.login({
+      email: correctEmail,
+      password: correctPassword,
+    });
   });
 
   it('should logout', (done) => {
