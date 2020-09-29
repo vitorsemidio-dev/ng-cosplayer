@@ -31,7 +31,7 @@ export class FakeDbService {
   constructor() {}
 
   createSession({ email, password }: IRequest): IResponse {
-    const user = this.users.find(userItem => userItem.email === email);
+    const user = this.users.find((userItem) => userItem.email === email);
 
     if (!user) {
       return this._messageInvalidMatch();
@@ -72,7 +72,7 @@ export class FakeDbService {
 
   getCosplayerById(idCosplay: string) {
     const cosplayer = this.cosplayers.find(
-      cosplayerItem => cosplayerItem.id === idCosplay,
+      (cosplayerItem) => cosplayerItem.id === idCosplay
     );
     return cosplayer;
   }

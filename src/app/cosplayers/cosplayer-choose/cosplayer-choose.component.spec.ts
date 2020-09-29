@@ -12,14 +12,10 @@ describe('CosplayerChooseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-      ],
-      declarations: [ CosplayerChooseComponent ],
-      providers: [
-      ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [CosplayerChooseComponent],
+      providers: [],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

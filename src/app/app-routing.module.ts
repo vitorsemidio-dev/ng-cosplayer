@@ -12,12 +12,13 @@ const routes: Routes = [
   {
     path: 'cosplayers',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./cosplayers/cosplayers.module').then(m => m.CosplayersModule),
-  }
+    loadChildren: () =>
+      import('./cosplayers/cosplayers.module').then((m) => m.CosplayersModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

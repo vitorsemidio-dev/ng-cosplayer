@@ -20,7 +20,7 @@ export class CosplayersListComponent implements OnInit {
   }
 
   loadCosplayers() {
-    this.cosplayerService.getCosplayers().subscribe(cosplayers => {
+    this.cosplayerService.getCosplayers().subscribe((cosplayers) => {
       this.cosplayerList = cosplayers;
     });
   }

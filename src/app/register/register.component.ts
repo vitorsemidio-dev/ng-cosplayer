@@ -9,7 +9,7 @@ interface RegisterFields {
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
   email: string;
@@ -18,10 +18,9 @@ export class RegisterComponent implements OnInit {
 
   feedback: string;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleRegister() {
     this.feedback = this.validateLogin({
@@ -31,7 +30,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  private validateLogin({name, email, password}: RegisterFields) {
+  private validateLogin({ name, email, password }: RegisterFields) {
     if (!name) {
       return 'É necessário informar o nome';
     }
@@ -46,5 +45,4 @@ export class RegisterComponent implements OnInit {
 
     return `Conta criada com sucesso. Bem vindo, ${name}`;
   }
-
 }

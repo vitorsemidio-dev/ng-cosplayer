@@ -40,10 +40,7 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        CosplayersModule,
-      ],
+      imports: [RouterTestingModule, CosplayersModule],
       declarations: [
         AppComponent,
         LoginComponent,
@@ -54,7 +51,7 @@ describe('AppComponent', () => {
         AppComponent,
         AuthService,
         // { provide: AuthService, useClass: MockAuthService }
-      ]
+      ],
     }).compileComponents();
   }));
 
@@ -89,7 +86,7 @@ describe('AppComponent', () => {
   it('should emit user loggedIn by auth service', (done) => {
     expect(app.logged).toBeFalse();
 
-    service.loginEmitter$.subscribe(isLogged => {
+    service.loginEmitter$.subscribe((isLogged) => {
       expect(app.logged).toBeTrue();
       done();
     });
@@ -99,5 +96,4 @@ describe('AppComponent', () => {
       password: correctPassword,
     });
   });
-
 });
