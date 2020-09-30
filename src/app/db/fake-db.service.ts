@@ -27,6 +27,7 @@ interface IResponseError extends IResponse {
 export class FakeDbService {
   private users = USERS;
   private cosplayers = COSPLAYERS;
+  private username: string;
 
   constructor() {}
 
@@ -42,6 +43,8 @@ export class FakeDbService {
     if (!passwordMatched) {
       return this._messageInvalidMatch();
     }
+
+    this.setUsername('user01@email.com');
 
     return this._messageValidMatch();
   }
@@ -75,6 +78,23 @@ export class FakeDbService {
       (cosplayerItem) => cosplayerItem.id === idCosplay
     );
     return cosplayer;
+  }
+
+  // Users
+
+  setUsername(email: string) {
+    const user = this.users.find((userItem) => userItem.email === email);
+    if (user) {
+      this.username = user.name;
+    }
+  }
+
+  getUsername() {
+    return this.username;
+  }
+
+  resetUsername() {
+    this.username = '';
   }
 }
 

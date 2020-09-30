@@ -1,1 +1,23 @@
-<p>menu works!</p>
+<div class="container-fluid">
+  <header class="container">
+    <span id="welcome-user">
+      Bem vindo,
+      <a [routerLink]="['/']">
+        <strong>
+          {{ username }}
+        </strong>
+      </a>
+    </span>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li>
+          <a [routerLink]="['/cosplayers']"> Cosplayers </a>
+        </li>
+        <li>
+          <a [routerLink]="['/']"> Eventos </a>
+        </li>
+      </ul>
+    </nav>
+    <button (click)="handleLogout()" class="btn btn-logout">Sair</button>
+  </header>
+</div>

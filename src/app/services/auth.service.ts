@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 import { FakeDbService } from './../db/fake-db.service';
@@ -13,14 +14,16 @@ interface IRequest {
 })
 export class AuthService {
   private isLogged = false;
+  username: string;
   loginEmitter$ = new Subject<boolean>();
 
-  constructor(private apiService: FakeDbService) {}
+  constructor(private apiService: FakeDbService, private router: Router) {}
 
   login({ email, password }: IRequest) {
     const response = this.apiService.createSession({ email, password });
 
     if (response.statusCode === 201) {
+      this.username = this.apiService.getUsername();
       this.isLogged = true;
       this.loginEmitter$.next(this.isLogged);
       return true;
@@ -32,11 +35,21 @@ export class AuthService {
   }
 
   logout() {
+    this.apiService.resetUsername();
+    this.username = this.getUsername();
     this.isLogged = false;
     this.loginEmitter$.next(this.isLogged);
   }
 
   getIsUserLogged() {
     return this.isLogged;
+  }
+
+  getUsername() {
+    return this.username;
+  }
+
+  redirectTo(route: string) {
+    this.router.navigate([route]);
   }
 }
