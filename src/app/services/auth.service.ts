@@ -13,6 +13,7 @@ interface IRequest {
 })
 export class AuthService {
   private isLogged = false;
+  username: string;
   loginEmitter$ = new Subject<boolean>();
 
   constructor(private apiService: FakeDbService) {}
@@ -21,6 +22,7 @@ export class AuthService {
     const response = this.apiService.createSession({ email, password });
 
     if (response.statusCode === 201) {
+      this.username = this.apiService.getUsername();
       this.isLogged = true;
       this.loginEmitter$.next(this.isLogged);
       return true;
@@ -32,11 +34,17 @@ export class AuthService {
   }
 
   logout() {
+    this.apiService.resetUsername();
+    this.username = this.getUsername();
     this.isLogged = false;
     this.loginEmitter$.next(this.isLogged);
   }
 
   getIsUserLogged() {
     return this.isLogged;
+  }
+
+  getUsername() {
+    return this.username;
   }
 }

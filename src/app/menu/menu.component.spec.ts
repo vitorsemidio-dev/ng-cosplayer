@@ -27,11 +27,22 @@ describe('MenuComponent', () => {
   it('should show username', () => {
     component.username = 'Fulano';
     fixture.detectChanges();
-    const menuNav = compiled.querySelector('nav');
-    expect(menuNav.innerHTML.trim()).toContain('Bem vindo', component.username);
+    const welcomeUser = compiled.querySelector('#welcome-user');
+    expect(welcomeUser.innerHTML.trim()).toContain(
+      'Bem vindo',
+      component.username
+    );
   });
 
   it('should not show username without login', () => {
     expect(component.username).toBeUndefined();
+  });
+
+  it('should destroy menu after logout', () => {
+    component.username = 'Jane Doe';
+    expect(component.username).toBeTruthy();
+    component.handleLogout();
+    fixture.detectChanges();
+    expect(component.username).toBeFalsy();
   });
 });

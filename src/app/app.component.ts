@@ -10,14 +10,16 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   private subLogin: Subscription;
+  username: string;
   logged = false;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.subLogin = this.authService.loginEmitter$.subscribe(
-      (isLogged) => (this.logged = isLogged)
-    );
+    this.subLogin = this.authService.loginEmitter$.subscribe((isLogged) => {
+      this.logged = isLogged;
+      this.username = this.authService.getUsername();
+    });
   }
 
   ngOnDestroy() {
