@@ -1,0 +1,65 @@
+.cosplayer-item {
+  // background-color: linear-gradient(45deg, yellow, orange);
+  background-image: linear-gradient(45deg, red, yellow, orange);
+}
+
+ul li img {
+  width: 32px;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+.p-0 {
+  padding: 0 !important;
+}
+
+.cosplayer-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cosplayer-item {
+  color: black;
+  background: #e3e3e3;
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: 0.5s all;
+  outline: none;
+  &:hover {
+    background: darken($color: #e3e3e3, $amount: 10);
+  }
+}
+
+.cosplayer-item strong {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+img.cosplayer-item-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.cosplayer-item ul.cosplay-list {
+  border-top: 2px solid #ff9000;
+  padding-top: 8px;
+  // display: flex;
+  li {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+  }
+  overflow: hidden;
+}
+
+.cosplayer-item ul.cosplay-list img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 4px;
+}

@@ -11,6 +11,7 @@ import { CosplayerService } from './../../services/cosplayer.service';
 })
 export class CosplayerChooseComponent implements OnInit {
   cosplayer: Cosplayer;
+  cosplays: any = ['1', '2 ', 45, '456'];
 
   constructor(
     private activatedRouter: ActivatedRoute,

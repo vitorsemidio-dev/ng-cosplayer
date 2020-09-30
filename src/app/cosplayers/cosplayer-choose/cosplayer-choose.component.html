@@ -1,5 +1,3 @@
-<p>Cosplayer choose: {{ cosplayer?.name }}</p>
-
 <div class="cosplayer-item">
   <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
     <img
@@ -7,14 +5,14 @@
       [alt]="'Avatar' + cosplayer?.name"
       class="cosplayer-item-img"
     />
-    <strong>
-      {{ cosplayer?.name }}
-    </strong>
+    <strong> {{ cosplayer?.name }} </strong>
   </div>
   <ul class="cosplay-list">
     <li *ngFor="let cosplay of cosplayer?.cosplays">
-      <span> {{ cosplay.name }} | {{ cosplay.price }} </span>
       <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
+      <span> {{ cosplay.name }} | {{ cosplay.price | currency: 'BRL' }} </span>
     </li>
   </ul>
 </div>
+
+<button class="btn btn-confirm">Contratar</button>
