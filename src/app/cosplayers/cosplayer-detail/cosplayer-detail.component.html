@@ -1,59 +1,19 @@
-<!-- <div>
-  <a
-    class="choose-link"
-    [id]="'cosplayer-' + cosplayer?.id"
-    [routerLink]="[cosplayer?.id]"
-  >
-    <img [src]="cosplayer?.avatarUrl" [alt]="'Avatar' + cosplayer?.name" />
-    <strong>
-      {{ cosplayer?.name }}
-    </strong>
-  </a>
-
-  <ul>
-    <li *ngFor="let cosplay of cosplayer?.cosplays">
+<a [routerLink]="[cosplayer?.id]" class="choose-link p-0 m-0">
+  <div class="cosplayer-item">
+    <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
+      <img
+        [src]="cosplayer?.avatarUrl"
+        [alt]="'Avatar' + cosplayer?.name"
+        class="cosplayer-item-img"
+      />
       <strong>
-        {{ cosplay.name }}
+        {{ cosplayer?.name }}
       </strong>
-      <span>
-        {{ cosplay.price }}
-      </span>
-      <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
-    </li>
-  </ul>
-</div> -->
-
-<div
-  [routerLink]="[cosplayer?.id]"
-  role="link choose-link"
-  class="cosplayer-item"
->
-  <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
-    <img
-      [src]="cosplayer?.avatarUrl"
-      [alt]="'Avatar' + cosplayer?.name"
-      class="cosplayer-item-img"
-    />
-    <!-- <img src="./assets/img/users/user1.png" alt="" class="cosplayer-item-img"> -->
-    <strong>
-      {{ cosplayer?.name }}
-    </strong>
-    <!-- <strong>Angel</strong> -->
+    </div>
+    <ul class="cosplay-list">
+      <li *ngFor="let cosplay of cosplayer?.cosplays">
+        <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
+      </li>
+    </ul>
   </div>
-  <ul class="cosplay-list">
-    <li *ngFor="let cosplay of cosplayer?.cosplays">
-      <!-- <strong>
-        {{ cosplay.name }}
-      </strong>
-      <span>
-        {{ cosplay.price }}
-      </span> -->
-      <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
-    </li>
-  </ul>
-  <!-- <div class="cosplays">
-    <img src="./assets/img/cosplay/img1.png" alt="cosplay">
-    <img src="./assets/img/cosplay/img2.png" alt="cosplay">
-    <img src="./assets/img/cosplay/img3.png" alt="cosplay">
-  </div> -->
-</div>
+</a>
