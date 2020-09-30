@@ -1,5 +1,5 @@
 <div class="container-choose">
-  <h2>Selecionado</h2>
+  <h2>{{ cosplayer?.name }} Selecionado(a)</h2>
   <div class="cosplayer-item">
     <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
       <img
@@ -7,7 +7,6 @@
         [alt]="'Avatar' + cosplayer?.name"
         class="cosplayer-item-img"
       />
-      <strong> {{ cosplayer?.name }} </strong>
     </div>
     <ul class="cosplay-list">
       <!-- TODO: Add id -->
@@ -31,6 +30,6 @@
   </div>
 
   <footer class="confirmation">
-    <button class="btn btn-confirm">Contratar</button>
+    <button (click)="handleRent()" class="btn btn-confirm">Alugar</button>
   </footer>
 </div>

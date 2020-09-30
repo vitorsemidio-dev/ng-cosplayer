@@ -45,4 +45,8 @@ export class CosplayerChooseComponent implements OnInit {
   private resetCosplayChoose() {
     this.idCosplayChoose = '';
   }
+
+  handleRent() {
+    // TODO
+  }
 }
