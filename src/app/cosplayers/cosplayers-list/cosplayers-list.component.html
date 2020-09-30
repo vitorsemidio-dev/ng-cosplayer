@@ -1,12 +1,11 @@
-<p>cosplayers-list works!</p>
-
-<div>
-  <div>
+<div class="card-list-container">
+  <h2 class="section-title">Cosplayers</h2>
+  <section class="cosplayer-list">
     <app-cosplayer-detail
       *ngFor="let cosplayer of cosplayerList"
       [cosplayer]="cosplayer"
     ></app-cosplayer-detail>
-  </div>
+  </section>
 
   <router-outlet></router-outlet>
 </div>
