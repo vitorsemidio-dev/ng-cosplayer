@@ -11,7 +11,11 @@
     </div>
     <ul class="cosplay-list">
       <li *ngFor="let cosplay of cosplayer?.cosplays">
-        <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
+        <img
+          class="cosplay-image"
+          [src]="cosplay.imageUrl"
+          [alt]="'Cosplay ' + cosplay.name"
+        />
         <span>
           {{ cosplay.name }} | {{ cosplay.price | currency: 'BRL' }}
         </span>
@@ -19,5 +23,7 @@
     </ul>
   </div>
 
-  <button class="btn btn-confirm">Contratar</button>
+  <footer class="confirmation">
+    <button class="btn btn-confirm">Contratar</button>
+  </footer>
 </div>
