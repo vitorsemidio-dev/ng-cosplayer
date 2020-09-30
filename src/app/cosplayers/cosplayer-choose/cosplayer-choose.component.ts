@@ -11,7 +11,7 @@ import { CosplayerService } from './../../services/cosplayer.service';
 })
 export class CosplayerChooseComponent implements OnInit {
   cosplayer: Cosplayer;
-  cosplays: any = ['1', '2 ', 45, '456'];
+  idCosplayChoose: string;
 
   constructor(
     private activatedRouter: ActivatedRoute,
@@ -24,9 +24,14 @@ export class CosplayerChooseComponent implements OnInit {
 
   private subRouterParams() {
     this.activatedRouter.params.subscribe((params) => {
+      this.resetCosplayChoose();
       const { idCosplay } = params;
       this.loadCosplay(idCosplay);
     });
+  }
+
+  chooseCosplay(idCosplayChoose: string) {
+    this.idCosplayChoose = idCosplayChoose;
   }
 
   loadCosplay(idCosplay: string) {
@@ -35,5 +40,9 @@ export class CosplayerChooseComponent implements OnInit {
       .subscribe((cosplayerInfo) => {
         this.cosplayer = cosplayerInfo;
       });
+  }
+
+  private resetCosplayChoose() {
+    this.idCosplayChoose = '';
   }
 }

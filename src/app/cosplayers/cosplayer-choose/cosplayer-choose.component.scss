@@ -1,7 +1,7 @@
 .container-choose {
   background-image: linear-gradient(45deg, red, yellow, orange);
-  padding: 32px 16px;
   border-radius: 32px;
+  padding: 32px 16px 16px;
   margin-left: 16px;
   width: 320px;
 }
@@ -18,12 +18,10 @@ footer.confirmation {
     border: 0;
     outline: none;
     padding: 0 16px;
-    // color: #fff;
     color: #321e38;
-    margin-top: 16px;
     width: 100%;
     font-weight: 500;
-    transition: background-color 0.2;
+    transition: background-color 0.2s;
     font-size: 24px;
 
     &:hover {
@@ -43,7 +41,6 @@ h2 {
 }
 
 .cosplayer-item {
-  // background-color: linear-gradient(45deg, yellow, orange);
   background-image: linear-gradient(45deg, red, yellow, orange);
 }
 
@@ -66,22 +63,17 @@ ul li img {
 }
 
 .cosplayer-item {
-  color: black;
-  background: #e3e3e3;
+  background: radial-gradient(#321e38, transparent);
   border-radius: 16px;
   padding: 16px;
-  // cursor: pointer;
-  // transition: 0.5s all;
   outline: none;
-  // &:hover {
-  // background: darken($color: #e3e3e3, $amount: 10);
-  // }
 }
 
 .cosplayer-item strong {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: bold;
   margin-left: 16px;
+  color: #e3e3e3;
 }
 
 img.cosplayer-item-img {
@@ -104,6 +96,9 @@ img.cosplayer-item-img {
     cursor: pointer;
     transition: 0.5s background-color;
     background-color: darken($color: #e3e3e3, $amount: 10);
+    &.select {
+      background-color: greenyellow;
+    }
   }
   li:hover {
     background-color: greenyellow;

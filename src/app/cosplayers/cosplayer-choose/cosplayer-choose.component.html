@@ -10,7 +10,14 @@
       <strong> {{ cosplayer?.name }} </strong>
     </div>
     <ul class="cosplay-list">
-      <li *ngFor="let cosplay of cosplayer?.cosplays">
+      <!-- TODO: Add id -->
+      <li
+        *ngFor="let cosplay of cosplayer?.cosplays"
+        (click)="chooseCosplay(cosplay?.name)"
+        [ngClass]="{
+          select: cosplay?.name === idCosplayChoose
+        }"
+      >
         <img
           class="cosplay-image"
           [src]="cosplay.imageUrl"
