@@ -1,3 +1,20 @@
-<p>
-  Cosplayer choose: {{ cosplayer?.name }}
-</p>
+<p>Cosplayer choose: {{ cosplayer?.name }}</p>
+
+<div class="cosplayer-item">
+  <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
+    <img
+      [src]="cosplayer?.avatarUrl"
+      [alt]="'Avatar' + cosplayer?.name"
+      class="cosplayer-item-img"
+    />
+    <strong>
+      {{ cosplayer?.name }}
+    </strong>
+  </div>
+  <ul class="cosplay-list">
+    <li *ngFor="let cosplay of cosplayer?.cosplays">
+      <span> {{ cosplay.name }} | {{ cosplay.price }} </span>
+      <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
+    </li>
+  </ul>
+</div>
