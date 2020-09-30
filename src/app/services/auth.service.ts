@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 import { FakeDbService } from './../db/fake-db.service';
@@ -16,7 +17,7 @@ export class AuthService {
   username: string;
   loginEmitter$ = new Subject<boolean>();
 
-  constructor(private apiService: FakeDbService) {}
+  constructor(private apiService: FakeDbService, private router: Router) {}
 
   login({ email, password }: IRequest) {
     const response = this.apiService.createSession({ email, password });
@@ -46,5 +47,9 @@ export class AuthService {
 
   getUsername() {
     return this.username;
+  }
+
+  redirectTo(route: string) {
+    this.router.navigate([route]);
   }
 }

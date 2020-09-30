@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MenuComponent } from './menu.component';
+import { AuthService } from './../services/auth.service';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -9,7 +11,9 @@ describe('MenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [MenuComponent],
+      providers: [AuthService],
     }).compileComponents();
   }));
 

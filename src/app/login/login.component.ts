@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   feedback: string;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const resposne = this.authService.login(this.loginForm.value);
       if (resposne) {
-        this.router.navigate(['/cosplayers']);
+        this.authService.redirectTo('/cosplayers');
       } else {
         this.feedback = 'E-mail ou senha incorreto';
       }

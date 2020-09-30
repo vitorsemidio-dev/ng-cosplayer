@@ -17,5 +17,6 @@ export class MenuComponent implements OnInit {
   handleLogout() {
     this.username = '';
     this.authService.logout();
+    this.authService.redirectTo('/');
   }
 }
