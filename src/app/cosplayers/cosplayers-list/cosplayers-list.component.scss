@@ -24,14 +24,17 @@
   margin: 32px auto 64px;
   width: 100%;
   max-width: 1120px;
+  display: grid;
+  grid-template-columns: auto 300px;
+  grid-column-gap: 16px;
   // display: flex;
   // .cosplayer-list {
   //   flex-grow: 1;
   // }
 
-  router-outlet {
-    width: 250px;
-  }
+  // router-outlet {
+  //   width: 250px;
+  // }
   // display: grid;
   // grid-template-columns: auto 1fr;
   // grid-gap: 8px;

@@ -1,18 +1,22 @@
-<div class="cosplayer-item">
-  <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
-    <img
-      [src]="cosplayer?.avatarUrl"
-      [alt]="'Avatar' + cosplayer?.name"
-      class="cosplayer-item-img"
-    />
-    <strong> {{ cosplayer?.name }} </strong>
+<div class="container-choose">
+  <div class="cosplayer-item">
+    <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
+      <img
+        [src]="cosplayer?.avatarUrl"
+        [alt]="'Avatar' + cosplayer?.name"
+        class="cosplayer-item-img"
+      />
+      <strong> {{ cosplayer?.name }} </strong>
+    </div>
+    <ul class="cosplay-list">
+      <li *ngFor="let cosplay of cosplayer?.cosplays">
+        <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
+        <span>
+          {{ cosplay.name }} | {{ cosplay.price | currency: 'BRL' }}
+        </span>
+      </li>
+    </ul>
   </div>
-  <ul class="cosplay-list">
-    <li *ngFor="let cosplay of cosplayer?.cosplays">
-      <img [src]="cosplay.imageUrl" [alt]="'Cosplay ' + cosplay.name" />
-      <span> {{ cosplay.name }} | {{ cosplay.price | currency: 'BRL' }} </span>
-    </li>
-  </ul>
-</div>
 
-<button class="btn btn-confirm">Contratar</button>
+  <button class="btn btn-confirm">Contratar</button>
+</div>
