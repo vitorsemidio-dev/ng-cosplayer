@@ -24,9 +24,16 @@
   margin: 32px auto 64px;
   width: 100%;
   max-width: 1120px;
-  display: grid;
-  grid-template-columns: auto 300px;
-  grid-column-gap: 16px;
+  display: flex;
+  .card-cosplayer-list-container {
+    flex-grow: 1;
+  }
+  // display: grid;
+  // grid-template-columns: auto 300px;
+  // grid-template-columns: minmax(auto, 1fr) minmax(0, 300px);
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  // grid-template-columns: repeat(auto-fit, 1fr) auto;
+  // grid-column-gap: 16px;
   // display: flex;
   // .cosplayer-list {
   //   flex-grow: 1;
