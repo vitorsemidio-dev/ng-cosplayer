@@ -39,13 +39,13 @@ describe('[CosplayerDetailComponent] - Render cosplayer data', () => {
 
     fixture.detectChanges();
     expect(
-      fixture.nativeElement.querySelector('a strong').innerText.trim()
+      fixture.nativeElement
+        .querySelector('.cosplayer-info strong')
+        .innerText.trim()
     ).toEqual(cosplayer.name);
+
     expect(
-      fixture.nativeElement.querySelector('li strong').innerText.trim()
-    ).toEqual(fisrtCosplay.name);
-    expect(
-      fixture.nativeElement.querySelector('li span').innerText.trim()
-    ).toEqual(fisrtCosplay.price.toString());
+      fixture.nativeElement.querySelector('.cosplay-list li img')
+    ).toBeTruthy();
   });
 });

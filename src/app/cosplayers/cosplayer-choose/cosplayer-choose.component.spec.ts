@@ -41,7 +41,7 @@ describe('CosplayerChooseComponent', () => {
     fixture.detectChanges();
     expect(component.cosplayer).toBeTruthy();
 
-    const p: HTMLParagraphElement = elementComponent.querySelector('p');
-    expect(p.innerText.trim()).toContain(component.cosplayer.name);
+    const h2: HTMLHeadingElement = elementComponent.querySelector('h2');
+    expect(h2.innerText.trim()).toContain(component.cosplayer.name);
   });
 });
