@@ -44,11 +44,22 @@ img {
 .container {
   padding: 32px 0;
   width: 90%;
-  // max-width: 1120px;
   max-width: 1420px;
   margin: 0 auto;
 
   @media (max-width: 1200px) {
     padding: 24px;
   }
+}
+
+.elevation1 {
+  background-color: #28262e;
+  padding: 32px;
+  border-radius: 32px;
+}
+
+.elevation2 {
+  background-color: #e3e3e3;
+  padding: 16px;
+  border-radius: 16px;
 }
