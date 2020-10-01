@@ -116,17 +116,17 @@ const COSPLAYERS: Cosplayer[] = [
         imageUrl: './../../assets/cosplayers/Asuna/Asuna-alicization.jpg',
       },
       {
-        name: 'Asuna Alicization',
+        name: 'Asuna ALO',
         price: 100.0,
         imageUrl: './../../assets/cosplayers/Asuna/Asuna-alo.png',
       },
       {
-        name: 'Asuna Alicization',
+        name: 'Asuna Ordinal Scale',
         price: 100.0,
         imageUrl: './../../assets/cosplayers/Asuna/Asuna-ordinal-scale.png',
       },
       {
-        name: 'Asuna Alicization',
+        name: 'Asuna SAO',
         price: 100.0,
         imageUrl: './../../assets/cosplayers/Asuna/Asuna-sao.jpg',
       },
@@ -205,6 +205,91 @@ const COSPLAYERS: Cosplayer[] = [
         name: 'Leafa ALO',
         price: 125,
         imageUrl: './../../assets/cosplayers/Leafa/Leafa-alo.png',
+      },
+    ],
+  },
+  {
+    id: '5',
+    name: 'Naruto',
+    avatarUrl: './../../assets/cosplayers/Naruto/Naruto.png',
+    cosplays: [
+      {
+        name: 'Naruto 6 Caminhos',
+        price: 230,
+        imageUrl: './../../assets/cosplayers/Naruto/Naruto-6-caminhos.jpg',
+      },
+      {
+        name: 'Naruto Kyuubi Kid',
+        price: 230,
+        imageUrl: './../../assets/cosplayers/Naruto/Naruto-Kyuubi-kid.png',
+      },
+      {
+        name: 'Naruto Kyuubi',
+        price: 230,
+        imageUrl: './../../assets/cosplayers/Naruto/Naruto-kyuubi.jpg',
+      },
+      {
+        name: 'Naruto Modo Sábio',
+        price: 230,
+        imageUrl: './../../assets/cosplayers/Naruto/Naruto-sabio.jpg',
+      },
+    ],
+  },
+  {
+    id: '6',
+    name: 'Sasuke',
+    avatarUrl: './../../assets/cosplayers/Sasuke/Sasuke.jpeg',
+    cosplays: [
+      {
+        name: 'Sasuke Akatsuki',
+        price: 250,
+        imageUrl: './../../assets/cosplayers/Sasuke/Sasuke-akatsuki.jpeg',
+      },
+      {
+        name: 'Sasuke Selo Completo',
+        price: 230,
+        imageUrl:
+          './../../assets/cosplayers/Sasuke/Sasuke-selo-amaldicoado-full.jpg',
+      },
+      {
+        name: 'Sasuke Selo',
+        price: 230,
+        imageUrl:
+          './../../assets/cosplayers/Sasuke/Sasuke-selo-amaldicoado.jpg',
+      },
+    ],
+  },
+  {
+    id: '7',
+    name: 'Silica',
+    avatarUrl: './../../assets/cosplayers/Silica/Silica.png',
+    cosplays: [
+      {
+        name: 'Silica ALO',
+        price: 150,
+        imageUrl: './../../assets/cosplayers/Silica/silica-alo.jpg',
+      },
+      {
+        name: 'Silica SAO',
+        price: 150,
+        imageUrl: './../../assets/cosplayers/Silica/silica-sao.jpg',
+      },
+    ],
+  },
+  {
+    id: '8',
+    name: 'Sinon',
+    avatarUrl: './../../assets/cosplayers/Sinon/Sinon.png',
+    cosplays: [
+      {
+        name: 'Sinon GGO',
+        price: 250,
+        imageUrl: './../../assets/cosplayers/Sinon/Sinon-ggo.png',
+      },
+      {
+        name: 'Sinon ALO',
+        price: 300,
+        imageUrl: './../../assets/cosplayers/Sinon/Sinon-alo.png',
       },
     ],
   },

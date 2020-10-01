@@ -1,5 +1,7 @@
+import { AlertModalComponent } from './../../alert-modal/alert-modal.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 import { Cosplayer } from './../../models/cosplayer.model';
 import { CosplayerService } from './../../services/cosplayer.service';
@@ -11,10 +13,12 @@ import { CosplayerService } from './../../services/cosplayer.service';
 })
 export class CosplayerChooseComponent implements OnInit {
   cosplayer: Cosplayer;
+  idCosplayChoose: string;
 
   constructor(
     private activatedRouter: ActivatedRoute,
-    private cosplayerService: CosplayerService
+    private cosplayerService: CosplayerService,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit(): void {
@@ -23,9 +27,14 @@ export class CosplayerChooseComponent implements OnInit {
 
   private subRouterParams() {
     this.activatedRouter.params.subscribe((params) => {
+      this.resetCosplayChoose();
       const { idCosplay } = params;
       this.loadCosplay(idCosplay);
     });
+  }
+
+  chooseCosplay(idCosplayChoose: string) {
+    this.idCosplayChoose = idCosplayChoose;
   }
 
   loadCosplay(idCosplay: string) {
@@ -34,5 +43,19 @@ export class CosplayerChooseComponent implements OnInit {
       .subscribe((cosplayerInfo) => {
         this.cosplayer = cosplayerInfo;
       });
+  }
+
+  private resetCosplayChoose() {
+    this.idCosplayChoose = '';
+  }
+
+  handleRent() {
+    // TODO
+    this.modalService.show(AlertModalComponent, {
+      initialState: {
+        cosplayer: this.cosplayer,
+        idCosplayChoose: this.idCosplayChoose,
+      },
+    });
   }
 }

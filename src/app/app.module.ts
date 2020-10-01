@@ -16,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
 import { AuthService } from './services/auth.service';
 import { CosplayerService } from './services/cosplayer.service';
 import { AuthGuard } from './guards/auth.guard';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     RegisterComponent,
     MenuComponent,
+    AlertModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { AuthGuard } from './guards/auth.guard';
     CosplayersModule,
   ],
   providers: [AuthService, CosplayerService, AuthGuard],
+  entryComponents: [AlertModalComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

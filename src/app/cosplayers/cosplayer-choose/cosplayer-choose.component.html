@@ -1,3 +1,35 @@
-<p>
-  Cosplayer choose: {{ cosplayer?.name }}
-</p>
+<div class="container-choose">
+  <h2>{{ cosplayer?.name }} Selecionado(a)</h2>
+  <div class="cosplayer-item">
+    <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
+      <img
+        [src]="cosplayer?.avatarUrl"
+        [alt]="'Avatar' + cosplayer?.name"
+        class="cosplayer-item-img"
+      />
+    </div>
+    <ul class="cosplay-list">
+      <!-- TODO: Add id -->
+      <li
+        *ngFor="let cosplay of cosplayer?.cosplays"
+        (click)="chooseCosplay(cosplay?.name)"
+        [ngClass]="{
+          select: cosplay?.name === idCosplayChoose
+        }"
+      >
+        <img
+          class="cosplay-image"
+          [src]="cosplay.imageUrl"
+          [alt]="'Cosplay ' + cosplay.name"
+        />
+        <span>
+          {{ cosplay.name }} | {{ cosplay.price | currency: 'BRL' }}
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <footer class="confirmation">
+    <button (click)="handleRent()" class="btn btn-confirm">Alugar</button>
+  </footer>
+</div>

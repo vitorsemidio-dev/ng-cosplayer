@@ -5,7 +5,8 @@ import { CosplayerChooseRoutingModule } from './cosplayer-choose-routing.module'
 import { CosplayerChooseComponent } from './cosplayer-choose.component';
 
 @NgModule({
-  declarations: [CosplayerChooseComponent],
-  imports: [CommonModule, CosplayerChooseRoutingModule],
+  declarations: [],
+  imports: [CosplayerChooseRoutingModule],
+  exports: [CommonModule],
 })
 export class CosplayerChooseModule {}
