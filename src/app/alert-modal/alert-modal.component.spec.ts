@@ -21,4 +21,9 @@ xdescribe('AlertModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should close modal', () => {
+    component.onClose();
+    expect(component).toBeFalsy();
+  });
 });

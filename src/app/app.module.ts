@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ModalModule } from 'ngx-bootstrap/modal';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
@@ -33,7 +32,6 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
     ReactiveFormsModule,
     AppRoutingModule,
     CosplayersModule,
-    ModalModule.forRoot(),
   ],
   providers: [AuthService, CosplayerService, AuthGuard],
   entryComponents: [AlertModalComponent],
