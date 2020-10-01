@@ -3,7 +3,7 @@ import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { CosplayerChooseComponent } from './cosplayer-choose.component';
-import { AppModule } from './../../app.module';
+import { CosplayersModule } from './../cosplayers.module';
 
 describe('CosplayerChooseComponent', () => {
   let component: CosplayerChooseComponent;
@@ -13,7 +13,7 @@ describe('CosplayerChooseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, AppModule],
+      imports: [RouterTestingModule, CosplayersModule],
       declarations: [CosplayerChooseComponent],
       providers: [],
     }).compileComponents();
