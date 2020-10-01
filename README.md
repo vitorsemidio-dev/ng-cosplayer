@@ -16,6 +16,18 @@ Aplicação Web para conectar eventos e cosplayers. Os cosplayers disponibilizam
   <img src="./.github/app/Menu.png">
 </p>
 
+### Listagem de Cosplayers
+
+<p align="center">
+  <img src="./.github/app/CosplayerList.png">
+</p>
+
+### Cosplayer Escolhido
+
+<p align="center">
+  <img src="./.github/app/CosplayerChoose.png">
+</p>
+
 ---
 
 ## Jasmine/Karma 🧪
