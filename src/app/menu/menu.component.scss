@@ -1,32 +1,3 @@
-ul li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-}
-
-.container-fluid {
-  width: 100vw;
-  background: #28262e;
-}
-
-.container {
-  padding: 32px 0;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-@media (max-width: 1200px) {
-  .container {
-    padding: 24px;
-  }
-}
-
 .nav-list {
   display: flex;
   align-items: center;

@@ -19,13 +19,36 @@ a {
 }
 
 button {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 ul li {
-  list-style: none;
+  list-style: none !important;
 }
 
 img {
   max-width: 100px;
+}
+
+.remove-text-decoration {
+  a {
+    text-decoration: none !important;
+  }
+}
+
+.container-fluid {
+  width: 100vw;
+  background: #28262e;
+}
+
+.container {
+  padding: 32px 0;
+  width: 90%;
+  // max-width: 1120px;
+  max-width: 1420px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    padding: 24px;
+  }
 }
