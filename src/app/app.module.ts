@@ -18,7 +18,6 @@ import { AuthService } from './services/auth.service';
 import { CosplayerService } from './services/cosplayer.service';
 import { AuthGuard } from './guards/auth.guard';
 import { AlertModalComponent } from './alert-modal/alert-modal.component';
-// import { BsModalService } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -34,14 +33,9 @@ import { AlertModalComponent } from './alert-modal/alert-modal.component';
     ReactiveFormsModule,
     AppRoutingModule,
     CosplayersModule,
-    ModalModule,
+    ModalModule.forRoot(),
   ],
-  providers: [
-    AuthService,
-    CosplayerService,
-    AuthGuard,
-    // BsModalService
-  ],
+  providers: [AuthService, CosplayerService, AuthGuard],
   entryComponents: [AlertModalComponent],
   bootstrap: [AppComponent],
 })
