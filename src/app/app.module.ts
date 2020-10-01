@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,8 @@ import { MenuComponent } from './menu/menu.component';
 import { AuthService } from './services/auth.service';
 import { CosplayerService } from './services/cosplayer.service';
 import { AuthGuard } from './guards/auth.guard';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
+// import { BsModalService } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     RegisterComponent,
     MenuComponent,
+    AlertModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,8 +34,15 @@ import { AuthGuard } from './guards/auth.guard';
     ReactiveFormsModule,
     AppRoutingModule,
     CosplayersModule,
+    ModalModule,
   ],
-  providers: [AuthService, CosplayerService, AuthGuard],
+  providers: [
+    AuthService,
+    CosplayerService,
+    AuthGuard,
+    // BsModalService
+  ],
+  entryComponents: [AlertModalComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

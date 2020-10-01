@@ -1,5 +1,7 @@
+import { AlertModalComponent } from './../../alert-modal/alert-modal.component';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 import { Cosplayer } from './../../models/cosplayer.model';
 import { CosplayerService } from './../../services/cosplayer.service';
@@ -15,7 +17,8 @@ export class CosplayerChooseComponent implements OnInit {
 
   constructor(
     private activatedRouter: ActivatedRoute,
-    private cosplayerService: CosplayerService
+    private cosplayerService: CosplayerService,
+    private modalService: BsModalService
   ) {}
 
   ngOnInit(): void {
@@ -48,5 +51,11 @@ export class CosplayerChooseComponent implements OnInit {
 
   handleRent() {
     // TODO
+    this.modalService.show(AlertModalComponent, {
+      initialState: {
+        cosplayer: this.cosplayer,
+        idCosplayChoose: this.idCosplayChoose,
+      },
+    });
   }
 }
