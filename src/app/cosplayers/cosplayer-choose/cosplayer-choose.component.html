@@ -1,7 +1,7 @@
-<div class="container-choose">
-  <h2>{{ cosplayer?.name }} Selecionado(a)</h2>
-  <div class="cosplayer-item">
-    <div class="cosplayer-info" [id]="'cosplayer-' + cosplayer?.id">
+<div class="container-choose elevation1">
+  <h2 class="title">{{ cosplayer?.name }} Selecionado(a)</h2>
+  <div class="cosplayer-item elevation2">
+    <div class="cosplayer-avatar-container" [id]="'cosplayer-' + cosplayer?.id">
       <img
         [src]="cosplayer?.avatarUrl"
         [alt]="'Avatar' + cosplayer?.name"
