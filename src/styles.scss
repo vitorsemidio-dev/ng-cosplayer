@@ -9,9 +9,15 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
   min-width: 100vw;
   background-color: #3a393c;
+}
+
+main {
+  padding: 0 !important;
 }
 
 a {
@@ -26,10 +32,6 @@ ul li {
   list-style: none !important;
 }
 
-img {
-  max-width: 100px;
-}
-
 .remove-text-decoration {
   a {
     text-decoration: none !important;
@@ -42,13 +44,13 @@ img {
 }
 
 .container {
-  padding: 32px 0;
+  padding: 32px 0 !important;
   width: 90%;
   max-width: 1420px;
   margin: 0 auto;
 
   @media (max-width: 1200px) {
-    padding: 24px;
+    padding: 24px !important;
   }
 }
 
