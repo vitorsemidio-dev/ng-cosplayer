@@ -32,10 +32,7 @@ describe('MenuComponent', () => {
     component.username = 'Fulano';
     fixture.detectChanges();
     const welcomeUser = compiled.querySelector('#welcome-user');
-    expect(welcomeUser.innerHTML.trim()).toContain(
-      'Bem vindo',
-      component.username
-    );
+    expect(welcomeUser.innerHTML.trim()).toContain('Olá', component.username);
   });
 
   it('should not show username without login', () => {

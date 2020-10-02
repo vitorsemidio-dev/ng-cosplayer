@@ -1,8 +1,8 @@
 <div class="container-fluid">
-  <header class="container">
+  <header class="container remove-text-decoration">
     <span id="welcome-user">
-      Bem vindo,
-      <a [routerLink]="['/']">
+      Olá,
+      <a>
         <strong>
           {{ username }}
         </strong>
@@ -14,7 +14,9 @@
           <a [routerLink]="['/cosplayers']"> Cosplayers </a>
         </li>
         <li>
-          <a [routerLink]="['/']"> Eventos </a>
+          <a class="soon">
+            Eventos <span class="badge badge-warning">Em breve</span>
+          </a>
         </li>
       </ul>
     </nav>

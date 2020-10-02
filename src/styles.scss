@@ -9,9 +9,15 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
   min-width: 100vw;
   background-color: #3a393c;
+}
+
+main {
+  padding: 0 !important;
 }
 
 a {
@@ -19,13 +25,52 @@ a {
 }
 
 button {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 ul li {
-  list-style: none;
+  list-style: none !important;
 }
 
-img {
-  max-width: 100px;
+.remove-text-decoration {
+  a {
+    text-decoration: none !important;
+  }
+}
+
+.container-fluid {
+  width: 100vw;
+  background: #28262e;
+}
+
+.container {
+  padding: 32px 0 !important;
+  width: 90%;
+  max-width: 1420px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    padding: 24px !important;
+  }
+}
+
+.elevation1 {
+  background-color: #28262e;
+  padding: 32px;
+  border-radius: 32px;
+}
+
+.elevation2 {
+  background-color: #e3e3e3;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e3e3e3;
+  padding: 10px;
+  border-left: 5px solid #ff9000;
+  margin-bottom: 16px;
 }

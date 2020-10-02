@@ -1,17 +1,6 @@
 .card-cosplayer-list-container {
   background-color: #28262e;
-  padding: 32px;
   height: auto;
-  border-radius: 32px;
-}
-
-.section-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #e3e3e3;
-  padding: 10px;
-  border-left: 5px solid #ff9000;
-  margin-bottom: 16px;
 }
 
 .cosplayer-list {
@@ -21,9 +10,7 @@
 }
 
 .card-list-container {
-  margin: 32px auto 64px;
   width: 100%;
-  max-width: 1120px;
   display: flex;
   align-items: flex-start;
   .card-cosplayer-list-container {
