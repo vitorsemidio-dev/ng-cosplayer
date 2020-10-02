@@ -37,11 +37,11 @@ Aplicação Web para conectar eventos e cosplayers. Os cosplayers disponibilizam
 ## Jasmine/Karma 🧪
 
 <p align="center">
-  <img src="./.github/tests/01-Jasmine.png">
+  <img src="./.github/tests/02-Jasmine.png">
 </p>
 
 ## Coverage 🧪
 
 <p align="center">
-  <img src="./.github/tests/01-Coverage.png">
+  <img src="./.github/tests/02-Coverage.png">
 </p>
