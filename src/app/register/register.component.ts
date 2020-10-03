@@ -33,13 +33,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // handleSubmitForm() {
-
-  //   this.handleRegister(formValues);
-  // }
-
-  // { name, email, password }: RegisterFields
-
   handleRegister() {
     const formValues = this.registerForm.value as RegisterFields;
     const { name, email, password } = formValues;
