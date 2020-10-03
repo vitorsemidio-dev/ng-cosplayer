@@ -3,7 +3,13 @@ import { Injectable } from '@angular/core';
 import { Cosplayer } from './../models/cosplayer.model';
 import { User } from './../models/user.model';
 
-interface IRequest {
+interface IRequestSession {
+  email: string;
+  password: string;
+}
+
+interface IRequestCreateUser {
+  name: string;
   email: string;
   password: string;
 }
@@ -31,7 +37,7 @@ export class FakeDbService {
 
   constructor() {}
 
-  createSession({ email, password }: IRequest): IResponse {
+  createSession({ email, password }: IRequestSession): IResponse {
     const user = this.users.find((userItem) => userItem.email === email);
 
     if (!user) {
@@ -67,6 +73,13 @@ export class FakeDbService {
     };
   }
 
+  private _messageValidCreateNewUser(): IResponseSuccess {
+    return {
+      statusCode: 200,
+      message: 'Criação com sucesso',
+    };
+  }
+
   // Cosplayers
 
   getCosplayers() {
@@ -95,6 +108,17 @@ export class FakeDbService {
 
   resetUsername() {
     this.username = '';
+  }
+
+  createUser({ name, password, email }: Omit<User, 'id'>) {
+    const id = this.generateUserId();
+    const newUser = Object.assign(new User(), { id, name, password, email });
+    this.users.push(newUser);
+    return this._messageValidCreateNewUser();
+  }
+
+  private generateUserId() {
+    return this.users.length;
   }
 }
 
