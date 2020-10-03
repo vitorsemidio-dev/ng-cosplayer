@@ -33,12 +33,16 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleSubmitForm() {
-    const formValues = this.registerForm.value as RegisterFields;
-    this.handleRegister(formValues);
-  }
+  // handleSubmitForm() {
 
-  private handleRegister({ name, email, password }: RegisterFields) {
+  //   this.handleRegister(formValues);
+  // }
+
+  // { name, email, password }: RegisterFields
+
+  handleRegister() {
+    const formValues = this.registerForm.value as RegisterFields;
+    const { name, email, password } = formValues;
     const response = this.authService.createUser({
       name,
       email,
@@ -50,21 +54,5 @@ export class RegisterComponent implements OnInit {
 
   private handleResponse(statusCode: number) {
     this.authService.redirectTo('login');
-  }
-
-  private validateLogin({ name, email, password }: RegisterFields) {
-    if (!name) {
-      return 'É necessário informar o nome';
-    }
-
-    if (!email) {
-      return 'É necessário informar o email';
-    }
-
-    if (!password) {
-      return 'É necessário informar a senha';
-    }
-
-    return `Conta criada com sucesso. Bem vindo, ${name}`;
   }
 }

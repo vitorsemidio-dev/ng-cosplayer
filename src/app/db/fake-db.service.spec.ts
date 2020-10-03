@@ -83,4 +83,22 @@ describe('[FakeDbService] - Create Session', () => {
     expect(response.message).toContain('incorreta');
     expect(response.statusCode).toEqual(401);
   });
+
+  it('should set username from user loggedIn', () => {
+    const name = 'User mocked';
+    const email = 'usermocked@email.com';
+    const password = '123456';
+    service.createUser({
+      name,
+      email,
+      password,
+    });
+
+    service.createSession({
+      email,
+      password,
+    });
+
+    expect(service.getUsername()).toBe(name);
+  });
 });

@@ -1,28 +1,9 @@
-<!-- <form>
-  <label for="name">
-    Name
-    <input name="name" type="text" id="name" />
-  </label>
-
-  <label for="email">
-    E-mail
-    <input name="email" type="email" id="email" />
-  </label>
-
-  <label for="password">
-    Senha
-    <input name="password" type="password" id="password" />
-  </label>
-
-  <button type="button" (click)="handleRegister()">Fazer login</button>
-</form> -->
-
 <main class="form-container">
   <form
     class="form-login"
     autocomplete="off"
     [formGroup]="registerForm"
-    (ngSubmit)="handleSubmitForm()"
+    (ngSubmit)="handleRegister()"
   >
     <img
       class="logo-login"
@@ -56,10 +37,6 @@
         placeholder="Sua senha ter 6 dígitos no mínimo"
       />
     </label>
-
-    <!-- <div *ngIf="feedback" class="alert-invalid">
-      {{ feedback }}
-    </div> -->
 
     <button class="button-submit" type="submit">Criar conta</button>
 
