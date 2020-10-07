@@ -33,6 +33,10 @@ describe('LoginComponent', () => {
   });
 
   it('should not login without provide email and password', () => {
+    component.loginForm.patchValue({
+      email: '',
+      password: '',
+    });
     component.handleSubmitForm();
 
     expect(component.feedback).toContain('informar e-mail e senha');
