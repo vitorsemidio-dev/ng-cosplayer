@@ -1,3 +1,5 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 interface RegisterFields {
@@ -16,33 +18,34 @@ export class RegisterComponent implements OnInit {
   password: string;
   name: string;
 
+  registerForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
+  });
+
   feedback: string;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   handleRegister() {
-    this.feedback = this.validateLogin({
-      name: this.name,
-      email: this.email,
-      password: this.password,
+    const formValues = this.registerForm.value as RegisterFields;
+    const { name, email, password } = formValues;
+    const response = this.authService.createUser({
+      name,
+      email,
+      password,
     });
+
+    this.handleResponse(response.statusCode);
   }
 
-  private validateLogin({ name, email, password }: RegisterFields) {
-    if (!name) {
-      return 'É necessário informar o nome';
-    }
-
-    if (!email) {
-      return 'É necessário informar o email';
-    }
-
-    if (!password) {
-      return 'É necessário informar a senha';
-    }
-
-    return `Conta criada com sucesso. Bem vindo, ${name}`;
+  private handleResponse(statusCode: number) {
+    this.authService.redirectTo('login');
   }
 }

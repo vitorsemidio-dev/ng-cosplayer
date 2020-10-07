@@ -1,19 +1,45 @@
-<p>register works!</p>
-<form>
-  <label for="name">
-    E-mail
-    <input name="name" type="text" id="name" />
-  </label>
+<main class="form-container">
+  <form
+    class="form-login"
+    autocomplete="off"
+    [formGroup]="registerForm"
+    (ngSubmit)="handleRegister()"
+  >
+    <img
+      class="logo-login"
+      src="../../assets/cosplayers/yugioh/YamiYugi.png"
+      alt="Logo Login"
+    />
 
-  <label for="email">
-    E-mail
-    <input name="email" type="email" id="email" />
-  </label>
+    <label>
+      Nome
+      <input
+        [formControlName]="'name'"
+        type="text"
+        placeholder="Ex: Ichigo Kurosaki"
+      />
+    </label>
 
-  <label for="password">
-    Senha
-    <input name="password" type="password" id="password" />
-  </label>
+    <label>
+      E-mail
+      <input
+        [formControlName]="'email'"
+        type="email"
+        placeholder="Ex: ngcosplayer@email.com"
+      />
+    </label>
 
-  <button type="button" (click)="handleRegister()">Fazer login</button>
-</form>
+    <label>
+      Senha
+      <input
+        [formControlName]="'password'"
+        type="password"
+        placeholder="Sua senha ter 6 dígitos no mínimo"
+      />
+    </label>
+
+    <button class="button-submit" type="submit">Criar conta</button>
+
+    <a [routerLink]="['/login']"> Faça seu login </a>
+  </form>
+</main>

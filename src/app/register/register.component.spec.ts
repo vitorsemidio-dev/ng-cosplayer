@@ -1,20 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegisterComponent } from './register.component';
+import { AppModule } from './../app.module';
+import { AuthService } from './../services/auth.service';
 
-describe('RegisterComponent', () => {
+xdescribe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
+  let service: AuthService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [AppModule],
       declarations: [RegisterComponent],
+      providers: [AuthService],
     }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
+    service = TestBed.inject(AuthService);
     fixture.detectChanges();
   });
 
@@ -44,11 +50,13 @@ describe('RegisterComponent', () => {
   });
 
   it('should be able to register', () => {
-    component.name = 'Fake';
-    component.email = 'fake@mail.com';
-    component.password = '123456';
+    component.registerForm.patchValue({
+      name: 'Fake',
+      email: 'fake@email.com',
+      password: '123456',
+    });
     component.handleRegister();
-    expect(component.feedback).toContain('criada com sucesso');
-    expect(component.feedback).toContain(component.name);
+    const spyOnCreateUser = spyOn(service, 'createUser').and.callThrough();
+    expect(spyOnCreateUser).toHaveBeenCalled();
   });
 });

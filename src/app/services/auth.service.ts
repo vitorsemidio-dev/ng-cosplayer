@@ -4,7 +4,13 @@ import { Subject } from 'rxjs';
 
 import { FakeDbService } from './../db/fake-db.service';
 
-interface IRequest {
+interface IRequestLogin {
+  email: string;
+  password: string;
+}
+
+interface IRequestCreateUser {
+  name: string;
   email: string;
   password: string;
 }
@@ -19,7 +25,7 @@ export class AuthService {
 
   constructor(private apiService: FakeDbService, private router: Router) {}
 
-  login({ email, password }: IRequest) {
+  login({ email, password }: IRequestLogin) {
     const response = this.apiService.createSession({ email, password });
 
     if (response.statusCode === 201) {
@@ -51,5 +57,14 @@ export class AuthService {
 
   redirectTo(route: string) {
     this.router.navigate([route]);
+  }
+
+  createUser({ name, email, password }: IRequestCreateUser) {
+    const responseNewUser = this.apiService.createUser({
+      name,
+      email,
+      password,
+    });
+    return responseNewUser;
   }
 }
